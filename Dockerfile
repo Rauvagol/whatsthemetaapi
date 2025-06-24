@@ -21,8 +21,9 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install dependencies and Playwright browsers
+RUN npm ci --only=production && \
+    npx playwright install chromium
 
 # Copy source code
 COPY . .
