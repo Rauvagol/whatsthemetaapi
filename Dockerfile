@@ -9,9 +9,10 @@ RUN apk add --no-cache \
     freetype-dev \
     harfbuzz \
     ca-certificates \
-    ttf-freefont
+    ttf-freefont \
+    curl
 
-# Set environment variables for Playwright
+# Set environment variables for Playwright to use system Chromium
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
 ENV PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
@@ -21,9 +22,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies and Playwright browsers
-RUN npm ci --only=production && \
-    npx playwright install chromium
+# Install dependencies (no need to install Playwright browsers since we're using system Chromium)
+RUN npm ci --only=production
 
 # Copy source code
 COPY . .
@@ -44,4 +44,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD curl -f http://localhost:3000/health || exit 1
 
 # Start the application
-CMD ["npm", "start"] 
+CMD ["npm", "start"]
