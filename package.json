@@ -1,0 +1,28 @@
+{
+  "name": "whatsthemetaapi",
+  "version": "1.0.0",
+  "description": "Web scraping API using Playwright",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "node test-api.js",
+    "test:api": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["playwright", "web-scraping", "api", "docker"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "playwright": "1.40.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
