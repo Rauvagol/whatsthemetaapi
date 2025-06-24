@@ -5,7 +5,7 @@ async function testFFLogs() {
     console.log('🔍 Testing FFLogs scraping...\n');
     
     const response = await axios.post('http://localhost:3000/scrape', {
-      url: 'https://www.fflogs.com/zone/statistics/68?dataset=50&class=Any'
+      url: 'https://www.fflogs.com/zone/statistics/65?dataset=50&class=Any'
     });
     
     console.log('✅ Scraping successful!');
